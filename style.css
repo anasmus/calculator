@@ -64,7 +64,7 @@ body {
 .container {
   width: 90%;
   max-width: 540px;
-  min-width: 375px;
+  min-width: 300px;
   color: var(--display-text-color);
   user-select: none;
 }
@@ -72,7 +72,12 @@ header {
   display: flex;
   justify-content: space-between;
 }
-
+footer {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 2rem;
+  color: var(--display-text-color);
+}
 /* COMPONENTS */
 /* 1. Controls Component  */
 .controls {
@@ -170,6 +175,15 @@ header {
 }
 .equal-key:active {
   box-shadow: 0 3px 2px var(--equal-key-shadow);
+}
+/* 4. Icon */
+.fa-github {
+  color: var(--display-text-color);
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
 }
 /* UTILITY CLASSES  */
 .small-text {
