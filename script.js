@@ -14,6 +14,7 @@ document.querySelector('.equal-key').addEventListener('click', calculateResult);
 document.querySelector('.del-key').addEventListener('click', deleteInput);
 document.querySelector('.reset-key').addEventListener('click', resetInput);
 document.querySelector('.dot-key').addEventListener('click', dotInput);
+window.addEventListener('keydown', keyboardInputHandler);
 
 function changeTheme() {
   const currentTheme = document.body.className;
@@ -63,7 +64,7 @@ function operatorHandler(e) {
   }
 }
 function calculateResult() {
-  if (inputDisplay.innerText && operator) {
+  if (inputDisplay.innerText && operator && !newWord) {
     const currentNumber = Number(inputDisplay.innerText);
     const result = solveExpression(numberOne, operator, currentNumber);
     calculationDisplay.innerText = `${numberOne} ${operator} ${currentNumber} = `;
@@ -83,4 +84,9 @@ function solveExpression(a, op, b) {
     case '/':
       return a / b;
   }
+}
+function keyboardInputHandler(e) {
+  const pressedKey = document.querySelector(`div[data-key="${e.key}"]`);
+  if (!pressedKey) return;
+  pressedKey.click();
 }
